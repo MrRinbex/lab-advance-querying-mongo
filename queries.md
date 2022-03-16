@@ -24,7 +24,7 @@ limit: 20
 
 <!-- Your Code Goes Here -->
 query: {founded_year: {$gte: 2000, $lte : 2005}}
-projection: {founded_year : 1, name: 1}
+projection: {founded_year : 1, name: 1, _id: 0}
 sort: 
 skip: 
 limit:
@@ -33,7 +33,7 @@ limit:
 
 <!-- Your Code Goes Here -->
 query: {"ipo.valuation_amount": {$gt: 100000000}, founded_year: {$lt: 2010}}
-projection: {"ipo.valuation_amount":1, name:1}
+projection: {"ipo.valuation_amount":1, name:1, _id: 0}
 sort: 
 skip: 
 limit:
@@ -50,7 +50,7 @@ limit: 10
 ### 6. All the companies that don't include the `partners` field.
 
 <!-- Your Code Goes Here -->
-query: {partners:{$ne: [] }} // $existe
+query: {partners:{$exists: false }} //
 projection: 
 sort: 
 skip: 
